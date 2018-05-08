@@ -1,0 +1,39 @@
+<mvc:View controllerName="Exercise1.controller.Exercise" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Button text="{parts: ['i18n>counterButton', 'count>/counter']}" press="onPressButton"/>
+					<TextArea value="{count>/currentNote}" valueLiveUpdate="true"/>
+					<Table items="{count>/entries}">
+						<columns>
+							<Column>
+								<Text text="{i18n>timeColumnName}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>counterColumnName}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>evenParityColumnnName}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>noteColumnName}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active">
+								<cells>
+									<Text text="{path: 'count>time', type: 'sap.ui.model.type.DateTime', formatOptions: {pattern: 'dd.MM.YY HH:mm:ss'}}"/>
+									<Text text="{count>number}"/>
+									<Text text="{path: 'count>counter', formatter: '.formatter.evenParity'}"/>
+									<Text text="{count>note}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
